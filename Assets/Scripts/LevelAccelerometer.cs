@@ -3,45 +3,27 @@
 // Script that will rotate the game object according to the input acceleration
 public class LevelAccelerometer : MonoBehaviour
 {
-    private Quaternion _rot;
-
-    void Start()
-    {
-        _rot = transform.rotation;
-    }
-
     void Update()
     {
-        //AccelerationMovement();
-
-        //transform.Rotate(Input.acceleration);
+    	AccelerometerMove(Input.acceleration);
     }
 
-    #region TiltMovement
+    private void AccelerometerMove (Vector3 _input)
+	{
+		transform.Rotate(TiltOnX(_input.x), TiltOnY(_input.y), 0f);
+    }
 
-    //private Vector3 AccelerationInput()
-    //{
-    //    Vector3 acceleration = Input.acceleration;
-    //    if (acceleration.magnitude < -0.1f || acceleration.magnitude > 0.1f)
-    //    {
-    //        return acceleration;
-    //    }
-    //    return Vector3.zero;
-    //}
-
-    private Vector3 AccelerationInput()
+    private float TiltOnX(float _x)
     {
-        return Input.acceleration;
+    	if (_x < -0.1f || _x > 0.1f)
+    		return _x;
+    	return 0f;
     }
 
-    private void AccelerationMovement()
+    private float TiltOnY (float _y)
     {
-        //transform.rotation = Quaternion.Euler(AccelerationInput());
-
-        _rot.x += AccelerationInput().x;
-        _rot.y += AccelerationInput().y;
-        transform.rotation = _rot;
+    	if (_y < -0.1f || _y > 0.1f)
+    		return _y;
+    	return 0f;
     }
-
-    #endregion TiltMovement
 }
