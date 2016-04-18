@@ -3,8 +3,10 @@
 // Script that will rotate the game object according to the input acceleration
 public class LevelAccelerometer : MonoBehaviour
 {
-	public float tiltOnXClamp;
-	public float tiltOnYClamp;
+	public float maxTiltOnX;
+	public float minTiltOnX;
+	public float maxTiltOnY;
+	public float minTiltOnY;
 	
 	private float initialTiltOnY;
 
@@ -26,14 +28,24 @@ public class LevelAccelerometer : MonoBehaviour
     private float TiltOnX(float _x)
     {
     	if (_x < -0.1f || _x > 0.1f)
-    		return _x;
+    		if (_x > maxTiltOnX)
+    			return maxTiltOnX;
+    		else if (_x < minTiltOnX)
+    			return minTiltOnX;
+    		else
+    			return _x;
     	return 0f;
     }
 
     private float TiltOnY (float _y)
     {
     	if (_y < -0.1f || _y > 0.1f)
-    		return _y;
+    		if (_y > maxTiltOnY)
+    			return maxTiltOnY;
+    		else if (_y < minTiltOnY)
+    			return minTiltOnY;
+    		else
+    			return _y;
     	return 0f;
     }
 }

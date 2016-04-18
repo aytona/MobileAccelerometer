@@ -7,6 +7,7 @@ public class TitleUI : MonoBehaviour
 {
     public GameObject leaderboardObj;
     public GameObject menuObj;
+
     public Text[] leaderboardScores;
 
     private Data data;
