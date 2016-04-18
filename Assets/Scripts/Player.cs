@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
     private IEnumerator Finished(float _delay)
     {
     	ui.StartGoal();
-    	return new WaitForSeconds(_delay);
+    	yield return new WaitForSeconds(_delay);
     	ui.ToMain();
     }
 }
