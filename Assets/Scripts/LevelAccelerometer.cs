@@ -3,6 +3,9 @@
 // Script that will rotate the game object according to the input acceleration
 public class LevelAccelerometer : MonoBehaviour
 {
+	public float tiltOnXClamp;
+	public float tiltOnYClamp;
+	
 	private float initialTiltOnY;
 
 	void Start()
