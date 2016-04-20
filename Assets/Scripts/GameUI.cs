@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameUI : MonoBehaviour 
 {
 	public GameObject[] uiObj;
-
-
 
 	#region ButtonFunctions
 	public void PauseGame()
