@@ -8,7 +8,7 @@ public class Data : Singleton<Data> {
         int tempScore;
         int paramScore = (int)score;
         for (int i = 0; i < savedHighscore.Length; i++) {
-            if (savedHighscore[i] < paramScore) {
+            if (savedHighscore[i] <= paramScore) {
                 tempScore = savedHighscore[i];
                 savedHighscore[i] = paramScore;
                 paramScore = tempScore;
