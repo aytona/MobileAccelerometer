@@ -27,25 +27,33 @@ public class LevelAccelerometer : MonoBehaviour
 
     private float TiltOnX(float _x)
     {
-    	if (_x < -0.1f || _x > 0.1f)
-    		if (_x > maxTiltOnX)
-    			return maxTiltOnX;
-    		else if (_x < minTiltOnX)
-    			return minTiltOnX;
-    		else
-    			return _x;
+        if (_x < -0.1f || _x > 0.1f)
+        {
+            if (transform.eulerAngles.x >= -45f || transform.eulerAngles.x <= 45f)
+            {
+                return _x;
+            }
+            else
+            {
+                return -_x;
+            }
+        }
     	return 0f;
     }
 
     private float TiltOnY (float _y)
     {
-    	if (_y < -0.1f || _y > 0.1f)
-    		if (_y > maxTiltOnY)
-    			return maxTiltOnY;
-    		else if (_y < minTiltOnY)
-    			return minTiltOnY;
-    		else
-    			return _y;
+        if (_y < -0.1f || _y > 0.1f)
+        {
+            if (transform.eulerAngles.y >= -45f || transform.eulerAngles.y <= 45f)
+            {
+                return _y;
+            }
+            else
+            {
+                return -_y;
+            }
+        }
     	return 0f;
     }
 }

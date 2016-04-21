@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && IsGrounded())
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount >= 1)  && IsGrounded())
         {
             Jump();
         }
